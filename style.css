@@ -11,6 +11,7 @@ body {
   text-align: center;
   padding: 50px 20px;
 }
+
 h1 {
   font-size: 36px;
   font-weight: 700;
@@ -22,10 +23,10 @@ h1 {
 .cont {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
+  justify-content: center;
 }
 
 .card {
@@ -34,7 +35,9 @@ h1 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: all 0.3s ease;
-  width: 350px;
+
+  width: calc(100% - 40px);
+  max-width: 350px;
 }
 
 .card:hover {
@@ -80,4 +83,16 @@ button.play-btn {
 
 button:hover {
   background-color: #1a2530;
+}
+
+@media (max-width: 768px) {
+  .cont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .card {
+    width: calc(50% - 20px);
+    max-width: 250px;
+  }
 }
